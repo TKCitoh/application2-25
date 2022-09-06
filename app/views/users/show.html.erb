@@ -1,28 +1,19 @@
-<h1>User info</h1>
-<%= form_with model: @book do |f| %>
-  <h4>画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
+<%= render 'books/list', book: @book %>
 
-  <h4>name</h4>
-  <%= f.text_field :name %>
+<div class="col-md-8 offset-md-1">
+  <h2>Books</h2>
+  <table class="table table-hover table-inverse">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+  </table>
+</div>
 
-  <h4>introduction</h4>
-  <%= f.text_field :nemw %>
 
 
-  <%= f.submit '投稿' %>
-<% end %>
-
-<h1>New Book</h1>
-  <%= form_with model: @book do |f| %>
-    <h4>Title</h4>
-      <%= f.text_field :title %>
-    <h4>Opinion</h4>
-      <%= f.text_area :body%>
-    <%= f.submit 'Create Book' %>
-  <% end %>
-
-<h1>Books</h1>
-<h4>Title</h4>
-<h4>Opinion</h4>
 
