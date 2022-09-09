@@ -1,11 +1,25 @@
-<%= render 'list', book: @book %>
+<%= render 'list', book: @book, user: @user %>
 
-<h1>Book detail</h1>
+<div class="col-md-8 offset-md-1">
+  <h2>Book detail</h2>
   <%= form_with model: @book do |f| %>
-  <p>投稿ユーザー画像：<%= image_tag book.user.get_profile_image(100,100) %></p>
-   <h4>Title</h4>
-<h4>Opinion</h4>
+   <table class="table">
+       <tbody>
+           <tr>
+               <td>投稿ユーザー画像：<%= image_tag @book.user.get_profile_image(100,100) %></td>
+               <td><%= @book.title %></td>
+               <td><%= @book.body %></td>
+               <% end %>
+               <td><% if @book.user == current_user %>
+                   <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削しますか？" %>
+                   <% end %>
+               </td>
+           </tr>
+       </tbody>
+   </table>
+</div>
 
-<% if @book.user == current_user %>
-    <%= link_to "Destroy", book_path(@book), method: :delete %>
-  <% end %>
+
+
+
+
