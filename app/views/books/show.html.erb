@@ -6,12 +6,16 @@
    <table class="table">
        <tbody>
            <tr>
-               <td>投稿ユーザー画像：<%= image_tag @book.user.get_profile_image(100,100) %></td>
+               <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
                <td><%= @book.title %></td>
-               <td><%= @book.body %></td>
+               <td><%= @book.opinion %></td>
                <% end %>
-               <td><% if @book.user == current_user %>
-                   <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削しますか？" %>
+               <td class="btn btn-success"><% if @book.user == current_user %>
+                   <%= link_to "Edit", edit_book_path %>
+                   <% end %>
+               </td>
+               <td class="btn btn-sm btn-danger"><% if @book.user == current_user %>
+                   <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削しますか？" %>
                    <% end %>
                </td>
            </tr>
