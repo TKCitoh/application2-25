@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h1>Editing book</h1>
+      <h1>Editing Book</h1>
       <% if @book.errors.any? %>
        <%= @book.errors.count %>error prohibited this obj from being saved:
       <ul>
@@ -21,10 +21,10 @@
       <div class="form-group">
         <label for="book_opinion">Opinion</label>
         <br>
-         <%= f.text_area :opinion %>
+         <%= f.text_area :body %>
       </div>
       <div class="form group">
-        <input type="submit" name="commit" Value="Update book" class="btn btn-success" date-disable-with="Update book">
+        <input type="submit" name="commit" Value="Update Book" class="btn btn-success" date-disable-with="Update Book">
       </div>
       <%= link_to "Show", book_path(@book.id) %> |
       <%= link_to "Back", books_path %>
