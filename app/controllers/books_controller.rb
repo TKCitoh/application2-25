@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-
   before_action :correct_user, only: [:edit, :update]
 
   def new
